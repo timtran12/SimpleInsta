@@ -1,6 +1,7 @@
 package com.example.simpleinsta;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -66,4 +67,13 @@ public class PostsAdapter extends RecyclerView.Adapter<PostsAdapter.ViewHolder> 
         }
     }
 
+    public void clear(){
+        posts.clear();
+        notifyDataSetChanged();
+    }
+
+    public void addAll(List<Post> postList){
+        posts.addAll(postList);
+        notifyDataSetChanged();
+    }
 }
