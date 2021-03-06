@@ -1,7 +1,9 @@
 package com.example.simpleinsta.fragments;
 
+import android.content.Intent;
 import android.util.Log;
 
+import com.example.simpleinsta.LoginActivity;
 import com.example.simpleinsta.Post;
 import com.parse.FindCallback;
 import com.parse.ParseException;
@@ -28,8 +30,10 @@ public class ProfileFragment extends PostsFragment {
                 for(Post post : posts){
                     Log.i(TAG, "Post: " + post.getDescription() + ", username" + post.getUser().getUsername());
                 }
+                allPosts.clear();
                 allPosts.addAll(posts);
                 adapter.notifyDataSetChanged();
+                swipeContainer.setRefreshing(false);
             }
         });
     }
